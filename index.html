@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Small Surprise</title>
+
+<style>
+
+body{
+margin:0;
+font-family: Arial, Helvetica, sans-serif;
+background: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+color:white;
+min-height:100vh;
+display:flex;
+align-items:flex-start;
+justify-content:center;
+text-align:center;
+padding:40px 20px;
+overflow-y:auto;
+}
+
+.container{
+width:94%;
+max-width:520px;
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(10px);
+padding:26px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+
+h1{font-size:22px;letter-spacing:1px}
+
+p{font-size:15px}
+
+button{
+margin-top:25px;
+padding:12px 26px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{transform:scale(1.05)}
+
+.hidden{display:none}
+
+.textbox{
+margin-top:18px;
+white-space:pre-line;
+font-size:15px;
+line-height:1.6;
+min-height:120px;
+}
+
+.countdown{
+font-size:20px;
+margin-top:12px;
+min-height:30px;
+}
+
+.tease{
+font-size:14px;
+opacity:.9;
+margin-top:6px;
+}
+
+.heart{
+position:fixed;
+color:#ff4d6d;
+animation:float 6s linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh) scale(.5);opacity:0}
+30%{opacity:1}
+100%{transform:translateY(-10vh) scale(1.2);opacity:0}
+}
+
+.poemPage{
+display:none;
+}
+
+.poem{
+white-space:pre-line;
+font-size:18px;
+line-height:1.7;
+margin-top:20px;
+}
+
+.final{
+margin-top:25px;
+font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+
+<h1>🌸 Womens Day Surprise 🌸</h1>
+<p>Something special is coming 😸😼</p>
+
+<div class="textbox" id="intro"></div>
+
+<div class="countdown" id="count"></div>
+<div class="tease" id="tease"></div>
+
+<button id="openBtn" class="hidden" onclick="openPoem()">Unlock Cutu</button>
+
+</div>
+
+<div class="container poemPage" id="poemPage">
+
+<div class="poem" id="poem"></div>
+
+<div class="final hidden" id="ending">
+
+<p>If you reached here…</p>
+
+<p>No matter what happens</p>
+
+<p>I will always be your</p>
+
+<b>Number 1 Cheerleader 😸</b>
+
+<br><br>
+
+<p>Now go smile a little...</p>
+
+<p>because someone lobhhhhhh you a lot 😼</p>  
+
+<br>
+
+<h2>Happy Women's Day My Queen 👑</h2>
+
+<p>I lobhhhhhhhhhhhhhhhh you</p> 
+<p>nd please maaf krdo yrrrrrr pleaseeeeeee</p> 
+
+<p>mwahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh 😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘</p> 
+
+</div>
+
+</div>
+
+<script>
+
+const introText=`aap gussa ho merese abhi lekin koina gussa bhi woh hote h jinko hamare actions se kuch farq padta care krte h nd main aaco reasons deta rehta trying my best babe sikhrha jb tk offline milunga pura polished milunga tn khair a very happy womens day to the most amazing the most prettiest most generous very much kind(lil bit too much) a fighter the most awesome nd truly the women who brings out her charm everytime she steps up who brings best out of me who make me realize how much lucky i am
+
+the girl who inspires me a lot my idolo my girl freind my wifey the way you fight out with everything the way you handle the situations jst bow down to you girl idc what the result is kya outcome aaya but i jst admire the way you try the way you work 🙇🙇 most perfect person anyone can't be like that you think about your parents that much in this gen truly admirable nd my goodness kindness toh itni h kya bolu itni humble overall you are the most complete most amazing most prettiest most cutest even words can't define your greatness whatever jst remember kuch bhi ho you have to at the top jo potential h aapmei god's grace nd also anything happens i will be with you your number 1 cheerleader aap jaise mujhe motivate krti ho mujhe samjhati ho themkuuuuuuuuuuuuuuuuuu soo muchhhhhhhhhhhh i jst can't be more thankful to god
+
+got the greatest made from god`
+
+const poemText=`You are energy of divine
+i m so lucky you are mine
+
+my so lovely fate
+lobhing you feels so great
+
+you are truly a gods grace
+
+everytime i feel low
+you make my face glow
+
+whenever i got demotivated
+you make my spirit elevated
+
+i m proud of all things you do
+the mindset you show so brave nd true
+
+cuz of your pretty smile
+life worth every mile
+
+don't ever stop
+i wanna cheer you when you will reach the top
+
+sometimes setback is fine
+jst don't stop nd shine
+
+with those pretty eyes
+jst rise nd rise
+
+wanna see you rise so hight
+till the endless sky
+
+so kind so amzaing so serene
+you light up my life like i have never seen
+
+the best girl ever seen
+
+happy womens day my queen
+
+mwahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh 😸`
+
+let i=0
+
+function typeIntro(){
+if(i<introText.length){
+document.getElementById("intro").innerHTML+=introText.charAt(i)
+i++
+setTimeout(typeIntro,28)
+}else{
+startSuspense()
+}
+}
+
+function startSuspense(){
+
+document.getElementById("tease").innerText="please wait 😸"
+
+const suspenseMessages=[
+"Loading loading... 😸",
+"Checking emotions... 😼",
+"Scanning for someone special... 😸",
+"Match found 😼",
+"Preparing something beautiful 😸",
+"Almost ready don't blink 😼",
+"Getting curious kikikiki 😸"
+]
+
+let step=0
+
+let suspense=setInterval(()=>{
+document.getElementById("count").innerText=suspenseMessages[step % suspenseMessages.length]
+step++
+},1200)
+
+setTimeout(()=>{
+clearInterval(suspense)
+startCountdown()
+},10000)
+
+}
+
+function startCountdown(){
+
+let num=5
+
+document.getElementById("tease").innerText="Final security countdown 😼"
+
+let countdown=setInterval(()=>{
+
+document.getElementById("count").innerText="Unlocking surprise in "+num
+
+num--
+
+if(num<0){
+clearInterval(countdown)
+document.getElementById("count").innerText="Surprise unlocked 🔓"
+document.getElementById("tease").innerText="Click if you are ready 😸"
+document.getElementById("openBtn").classList.remove("hidden")
+}
+
+},1000)
+
+}
+
+function openPoem(){
+
+document.getElementById("main").style.display="none"
+document.getElementById("poemPage").style.display="block"
+
+typePoem()
+startHearts()
+
+}
+
+let p=0
+
+function typePoem(){
+
+if(p<poemText.length){
+document.getElementById("poem").innerHTML+=poemText.charAt(p)
+p++
+setTimeout(typePoem,40)
+}else{
+document.getElementById("ending").classList.remove("hidden")
+}
+
+}
+
+function startHearts(){
+
+setInterval(()=>{
+
+const h=document.createElement("div")
+h.className="heart"
+h.innerHTML="❤"
+
+h.style.left=Math.random()*100+"vw"
+h.style.fontSize=(Math.random()*20+12)+"px"
+
+document.body.appendChild(h)
+
+setTimeout(()=>{h.remove()},6000)
+
+},300)
+
+}
+
+typeIntro()
+
+</script>
+
+</body>
+</html>
